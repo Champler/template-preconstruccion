@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        table,
+        th,
         td {
-            border-right: 1px solid black;
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: Verdana;
         }
-
         * {
             font-family: Verdana;
+            margin: 0;
         }
-        p {
-            font-family: Verdana;
-        }
+
 
         .border-bot {
             border-bottom: 1px solid black;
@@ -23,11 +25,11 @@
 
         ul .li-5 {
             list-style-type: square;
-            font-size: 10px;
+            font-size: 8px;
         }
 
         ul .li-6 {
-            font-size: 10px;
+            font-size: 8px;
             list-style-type: disc;
         }
     </style>
@@ -35,65 +37,109 @@
 </head>
 
 <body>
-    
-    <table style="border-collapse: collapse; width: 90%; font-size: 14px; margin: auto; margin-bottom: 20px;">
+
+    <table style="width: 90%; font-size: 10px; margin: auto; margin-bottom: 20px;">
         <tr>
-            <th colspan="5"
-                style="text-align: center; font-size: 15px; border: 1px solid black; padding: 8px; background-color: #dddddd;">
+            <th colspan="5" style="text-align: center; font-size: 11px; padding: 8px; background-color: #dddddd;">
                 Participante</th>
         </tr>
         <tr>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Nombre y Apellido</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p> Función</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Firma</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>AySA</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Contratista</p></th>
+            <th style="padding: 8px; background-color: #dddddd;">
+                <p>Nombre y Apellido</p>
+            </th>
+            <th style="padding: 8px; background-color: #dddddd;">
+                <p> Función</p>
+            </th>
+            <th style="padding: 8px; background-color: #dddddd;">
+                <p>Firma</p>
+            </th>
+            <th style="padding: 8px; background-color: #dddddd;">
+                <p>AySA</p>
+            </th>
+            <th style="padding: 8px; background-color: #dddddd;">
+                <p>Contratista</p>
+            </th>
         </tr>
         {{#each data.participantes}}
         <tr>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.nombreyapellido}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p></p>{{this.funcion}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"></td>
-            <td style="border: 1px solid black; padding: 8px; font-weight: bold; text-align: center;"><p>{{this.aysa}}</p></td>
-            <td style="border: 1px solid black; padding: 8px; font-weight: bold; text-align: center;"><p>{{this.contratista}}</p></td>
+            <td style=" padding: 8px;">
+                <p>{{this.nombreyapellido}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p></p>{{this.funcion}}</p>
+            </td>
+            <td style=" padding: 8px;"></td>
+            <td style=" padding: 8px; font-weight: bold; text-align: center;">
+                <p>{{this.aysa}}</p>
+            </td>
+            <td style=" padding: 8px; font-weight: bold; text-align: center;">
+                <p>{{this.contratista}}</p>
+            </td>
         </tr>
         {{/each}}
     </table>
-    <table style="border-collapse: collapse; width: 90%; margin: auto; font-size: 14px;">
+    <table style="width: 90%; margin: auto; font-size: 10px;">
         <tr>
-            <th colspan="6"
-                style="text-align: center; font-size: 15px; border: 1px solid black; padding: 8px; background-color: #dddddd;">
+            <th colspan="6" style="text-align: center; font-size: 12px; padding: 8px; background-color: #dddddd;">
                 DOCUMENTACIÓN A PRESENTAR PREVIO AL INICIO FÍSICO DE LA OBRA</th>
         </tr>
         {{#each data.documentacion}}
         <tr>
-            <th colspan="6"
-                style="text-align: center; border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>{{this.area}}</p></th>
+            <th colspan="6" style="text-align: center; padding: 8px; background-color: #dddddd;">
+                <p>{{this.area}}</p>
+            </th>
         </tr>
         <tr>
-            <th style="border: 1px solid black; padding: 8px;" rowspan="2" colspan="2"><p>Documento</p></th>
-            <th style="border: 1px solid black; padding: 8px; border-left: 1px solid black;" rowspan="2"><p>Fecha de entrega</p></th>
-            <th style="border: 1px solid black; padding: 8px;" colspan="2"><p>Acción</p></th>
-            <th style="border: 1px solid black; padding: 8px;" rowspan="2"><p>Comentarios</p></th>
+            <th style="background-color: #dddddd; width: 32%;" colspan="2"  rowspan="2">
+                Documento
+            </th>
+            <th style="background-color: #dddddd; border:none; position: relative;" colspan="1" ">
+                <p style="position: absolute; top: 50%; left: 8%; transform: translate(-50%, -50%);"> Fecha de Entrega</p> 
+            </th>
+            <th style="background-color: #dddddd;" colspan="2">
+                <p>Acción</p>
+            </th>
+            <th style="background-color: #dddddd;" colspan="1" rowspan="2">
+                <p>Comentarios</p>
+            </th>
 
         </tr>
         <tr>
-            <td style="border: 1px solid black; padding: 8px;"><p>Cont</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p>AySA</p></td>
+            <td style=" text-align: center; background-color: #dddddd; margin: 3px; border: 0;" colspan="1" rowspan="0">
+                
+            </td>
+            <td style=" text-align: center; background-color: #dddddd; margin: 3px;">
+                <p>Cont</p>
+            </td>
+            <td style=" text-align: center; background-color: #dddddd; margin: 3px;">
+                <p>AySA</p>
+            </td>
         </tr>
         {{#each this.documentos}}
         <tr>
-            <td style="border: 1px solid black; padding: 8px;"><p> {{this.nro}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p> {{this.documento}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.fecha_entrega}}</p></td>
-            <td style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold;"><p>{{this.contratista}}</p></td>
-            <td style="border: 1px solid black; padding: 8px; text-align: center; font-weight: bold;"><p>{{this.aysa}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.comentarios}}</p></td>
+            <td style=" padding: 8px;">
+                <p> {{this.nro}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p> {{this.documento}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p>{{this.fecha_entrega}}</p>
+            </td>
+            <td style=" padding: 8px; text-align: center; font-weight: bold;">
+                <p>{{this.contratista}}</p>
+            </td>
+            <td style=" padding: 8px; text-align: center; font-weight: bold;">
+                <p>{{this.aysa}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p>{{this.comentarios}}</p>
+            </td>
         </tr>
         {{/each}}
         {{/each}}
     </table>
-    <section style="width: 90%; margin: auto; font-size: 11px;">
+    <section style="width: 90%; margin: auto; font-size: 10px; margin-top: 20px;">
         <div>
             <p><strong>Nota 1: </strong>Se hace entrega del formulario de presentación de Pólizas de Seguros. Y se
                 aclara que todos los 20 de
@@ -113,7 +159,8 @@
                 trabajos en Agua y Saneamientos Argentinos".</p>
         </div>
         <div>
-            <p><strong>Nota 4: </strong> Se hace entrega de la "Ficha de Requerimientos Ambientales". Todos los meses la Contratista debe
+            <p><strong>Nota 4: </strong> Se hace entrega de la "Ficha de Requerimientos Ambientales". Todos los meses la
+                Contratista debe
                 presentar por Nota de Pedido la planilla de "Seguimiento del desempeño ambiental de obras".
                 En caso de obras de Planta, Estaciones de Bombeo, obras de descarga, de regulación, almacenamiento y
                 captación y obras de importancia, la Contratista es responsable de cerrar todos los desvíos ambientales
@@ -124,7 +171,7 @@
         <div>
             <p><strong>Nota 5: </strong> En el caso de interferencias en las que intervengan
                 Metrogas/Gasban la contratista debe presentar:</p>
-            <ul>
+            <ul style="width: 80%;">
                 <li class="li-5">Entrega de la solicitud de interferencia recepcionado por Metrogas/Gasban</li>
                 <li class="li-5">Entrega de planos de interferencia y listado detallado entregado por Metrogas/Gasban
                 </li>
@@ -144,18 +191,20 @@
             <p><strong>Nota 6: </strong> Documentación a presentar por el Contratista en caso
                 que los Municipios lo requieran como condición para la obtención de permisos (Resolución ENARGAS
                 N°181)</p>
-            <ol>
-                <li>Copias de planos de las redes y/o gasoductos proporcionados por la Licenciataria, con indicación
+            <ol style="width: 80%;">
+                <li class="li-5">Copias de planos de las redes y/o gasoductos proporcionados por la Licenciataria, con
+                    indicación
                     precisa de la localización precisa de la localización de las instalaciones de gas que podrán ser
                     afectadas.
                 </li>
-                <li>Copias de las notificaciones presentadas ante la Licenciataria por dicha empresa acerca de la
+                <li class="li-5">Copias de las notificaciones presentadas ante la Licenciataria por dicha empresa acerca
+                    de la
                     realización de los sondeos previos tendientes a ubicar las instalaciones sobre la base de los planos
                     proporcionados por aquella y del inicio efectivo de las obras. Dicha notificación deberá incluir
                     además, la solicitud de asesoramiento durante la realización de los trabajos.
                 </li>
-                <li>Presentación de una Declaración Jurada en la que manifieste:
-                    <ul>
+                <li class="li-5">Presentación de una Declaración Jurada en la que manifieste:
+                    <ul style="width: 100%;">
                         <li class="li-6">El compromiso de realizar los sondeos previos sobre la base del plano
                             proporcionado por la
                             Licenciataria utilizando exclusivamente elementos de uso manual, como así también, los
@@ -171,22 +220,33 @@
             </ol>
         </div>
     </section>
-    <table style="border-collapse: collapse; width: 90%; font-size: 14px; margin:auto; margin-top: 20px;">
+    <table style="width: 90%; font-size: 10px; margin:auto; margin-top: 20px;">
         <tr>
-            <th colspan="3"
-                style="text-align: center; font-size: 15px;  border: 1px solid black; padding: 8px; background-color: #dddddd;">
+            <th colspan="3" style="text-align: center; font-size: 12px; padding: 8px; background-color: #dddddd;">
                 Datos de Contacto</th>
         </tr>
         <tr>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Nombre y Empresa</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Teléfono</p></th>
-            <th style="border: 1px solid black; padding: 8px; background-color: #dddddd;"><p>Mail</p></th>
+            <th style=" padding: 8px; background-color: #dddddd;">
+                <p>Nombre y Empresa</p>
+            </th>
+            <th style=" padding: 8px; background-color: #dddddd;">
+                <p>Teléfono</p>
+            </th>
+            <th style=" padding: 8px; background-color: #dddddd;">
+                <p>Mail</p>
+            </th>
         </tr>
         {{#each data.contacto}}
         <tr>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.nombreyapellido}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.telefono}}</p></td>
-            <td style="border: 1px solid black; padding: 8px;"><p>{{this.correo}}</p></td>
+            <td style=" padding: 8px;">
+                <p>{{this.nombreyapellido}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p>{{this.telefono}}</p>
+            </td>
+            <td style=" padding: 8px;">
+                <p>{{this.correo}}</p>
+            </td>
         </tr>
         {{/each}}
     </table>
