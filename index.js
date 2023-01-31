@@ -30,7 +30,7 @@ app.post('/', async (req, res) => {
         type: 'file',
         template: html,
         context: { data },
-        path: "./preconstruccion" + ".pdf",
+        path: "./preconstruccion"+ Date.now() + ".pdf",
 
     }
 
