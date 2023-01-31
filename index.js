@@ -103,23 +103,31 @@ app.get('/', async (req, res) => {
     const options = {
         format: "A4",
         orientation: "portrait",
-    };
-    
-    let document = {
-        type: 'file',    
-        template: html,
-        context: {data},
-        path: "./preconstruccion" + ".pdf"    
-    }
-    
-    pdf.create(document, options)
-        .then(data => {
-            console.log(data)
-            res.status(200).send("Se creo un pdf de acuerdo a lo solicitado")
-        })
-        .catch(error => {
-            res.send(error)
-        });
+        header: {
+            "contents": {
+                default: `<table style="border: 1px solid black; width: 90%; margin: auto; border-collapse: collapse; page-break-inside: avoid; margin-bottom: 20px; margin-top:10px;" > <tr style="border: 1px solid black;"> <td style="width: 15%; text-align: center;"><img alt="logo-aysa" style="height: 50px;" src="logo.jpg"/></td><td style="width: 40%; text-align: center;">Acta Nº ${data.nro_acta}</td></tr><tr style="border: 1px solid black;"><td style="width: 30%; vertical-align: top;"><p style="margin: 5px 0;" class="border-bot">Número de P3: ${data.nrop3}</p><p style="margin: 5px 0;" class="border-bot">Partido: ${data.partido}</span><p style="margin: 5px 0;" class="border-bot">Zona: ${data.sistema}</span><p style="margin: 5px 0;">Fecha: ${data.fecha}</p></td><td style="width: 25%; vertical-align: top;"><p style="margin: 5px 0;" class="border-bot">Contratista: ${data.razon_social}</span><p style="margin: 5px 0;">${data.descripcion}</p></td></tr></table >`, 
+            }, 
+                height:"65mm",
+            },
+        footer: { "height": "25mm", }
+};
+
+let document = {
+    type: 'file',
+    template: html,
+    context: { data },
+    path: "./preconstruccion" + ".pdf",
+
+}
+
+pdf.create(document, options)
+    .then(data => {
+        console.log(data)
+        res.status(200).send("Se creo un pdf de acuerdo a lo solicitado")
+    })
+    .catch(error => {
+        res.send(error)
+    });
 });
 
 
