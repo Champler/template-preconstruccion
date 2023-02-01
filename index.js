@@ -36,7 +36,6 @@ app.post('/', async (req, res) => {
 
     pdf.create(document, options)
         .then(data => {
-            console.log(data)
             res.status(200).send("Se creo un pdf de acuerdo a lo solicitado")
         })
         .catch(error => {
