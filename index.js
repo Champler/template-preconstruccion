@@ -47,20 +47,26 @@ const checker = (data) => {
                 }
             }
         default:
+            return null
             break;
     }
 }
 app.post('/', async (req, res) => {
     const data = await req.body
     const properties = checker(data)
-    
-    pdf.create(properties.document, properties.options)
-        .then(data => {
-            res.status(200).send(data)
-        })
-        .catch(error => {
-            res.send(error)
-        });
+    if (properties) {
+        
+        pdf.create(properties.document, properties.options)
+            .then(data => {
+                res.status(200).send(data)
+            })
+            .catch(error => {
+                res.send(error)
+            });
+    }
+    else {
+        res.status(400).send("Su solicitud no pudo ser procesada")
+    }
 });
 
 
