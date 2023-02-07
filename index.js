@@ -48,7 +48,6 @@ const checker = (data) => {
             }
         default:
             return null
-            break;
     }
 }
 app.post('/', async (req, res) => {
